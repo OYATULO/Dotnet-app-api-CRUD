@@ -1,0 +1,38 @@
+@model List<dotnet2.Models.Students>
+@{
+    ViewData["Title"] = "Home Page";
+    var list1 = ViewBag.List;
+
+}
+
+<div id="main">
+        <table>
+                <thead>
+                    <tr>
+                        <td>id</td>
+                        <td>Name</td>
+                        <td>Age</td>
+                        <td>Update</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var p in Model){
+                    <tr>
+                        <td>@p.StudentID</td>
+                        <td>@p.StudentName</td>
+                        <td>@p.Studetntage</td>
+                        <td>
+                            @Html.ActionLink("delelet","Deletebyid",new{id=p.StudentID})
+                            @Html.ActionLink("Update","update",new{StudentID= p.StudentID})
+                        </td>
+                    </tr>
+                     }
+                </tbody>
+        </table>   
+   
+   
+        <h1>@Html.ActionLink("Create","update") </h1>
+       
+        
+</div>
+
